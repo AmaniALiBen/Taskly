@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly | Details</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/indexStyle.css">
+    <link rel="stylesheet" href="css/gigStyle.css">
+    <link rel="stylesheet" href="css/details.css">
+   
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+ <div class="animated-background"></div>
+
+<nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="brand-logo">Task<span>ly</span></a>
+            <div style="display: flex; gap: 10px;">
+
+                 <button onclick="goHome()" class="btn-back">← Back to Explore</button>
+                <button class="button-small" style="background:transparent; color:white;">Login</button>
+                <button class="button-small button-primary">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+<div class="container">
+    <main>
+        
+        <!-- LEFT CONTENT -->
+        <div class="content-left">
+            
+            
+            <h1 id="title" class="title-hero">...</h1>
+
+            <div class="seller-card glass-card">
+                <div class="avatar-wrapper">
+                    <img id="avatar" class="avatar" alt="Seller Avatar">
+                </div>
+                <div class="seller-info">
+                    <h4>
+                        <span id="seller">...</span>
+                        <span id="levelBadge" class="level-badge">...</span>
+                    </h4>
+                    <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Verified Visual Designer</span>
+                </div>
+            </div>
+
+            <div class="gallery-container">
+                <div class="main-image-wrapper">
+                    <img id="mainImage" src="" alt="Main Preview">
+                </div>
+                <div class="thumbnails-grid" id="thumbnails"></div>
+            </div>
+
+            <div class="overview-card glass-card">
+                <h2 class="section-title">Description</h2>
+                <div id="desc" class="description-text"></div>
+            </div>
+        </div>
+
+        <!-- RIGHT CONTENT -->
+        <div class="content-right">
+            <div class="package-card glass-card">
+                <div class="tabs-header">
+                    <div onclick="switchTab('basic')" id="tab-basic" class="package-tab active">BASIC</div>
+                    <div onclick="switchTab('standard')" id="tab-standard" class="package-tab">STANDARD</div>
+                    <div onclick="switchTab('premium')" id="tab-premium" class="package-tab">PREMIUM</div>
+                </div>
+
+                <div class="package-body">
+                    <div class="price-row">
+                        <h3 id="pkgName" class="pkg-name">...</h3>
+                        <span id="pkgPrice" class="pkg-price">...</span>
+                    </div>
+
+                    <p id="pkgDesc" class="pkg-desc"></p>
+
+                    <div id="features" class="features-list"></div>
+
+                    <div class="meta-row">
+                        <span id="delivery"><i class="far fa-clock"></i> ...</span>
+                        <span id="revisions"><i class="fas fa-sync"></i> ...</span>
+                    </div>
+
+                    <button onclick="buy()" class="btn-buy">Continue to Purchase</button>
+                    <p style="text-align: center; font-size: 0.65rem; color: var(--text-muted); margin-top: 10px;">Secure Payment via Taskly Escrow</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="js/details.js"></script>
+
+</body>
+</html>
