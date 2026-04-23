@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Taskly Global</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="p1.css">
+        <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="animated-background"></div>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="brand-logo">Task<span>ly</span></a>
+            <div style="display: flex; gap: 10px;">
+                <button class="button-small" style="background:transparent; color:white;">Login</button>
+                <button class="button-small button-primary">Sign In</button>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+<div class="checkout-bg"></div>
+
+<div class="checkout-wrapper">
+
+    <!-- LEFT SIDE -->
+    <div class="checkout-card">
+
+        <div class="checkout-title">
+            <i class="fa-solid fa-shield-halved"></i>
+            Secure Checkout
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="payment-methods">
+            <div class="method active">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Card</span>
+            </div>
+
+            <div class="method">
+                <i class="fa-brands fa-paypal"></i>
+                <span>PayPal</span>
+            </div>
+
+            <div class="method">
+                <i class="fa-brands fa-apple-pay"></i>
+                <span>Apple Pay</span>
+            </div>
+        </div>
+
+        <!-- Inputs -->
+        <div class="input-group">
+            <label>Cardholder Name</label>
+            <input type="text" placeholder="Johnathan Doe">
+        </div>
+
+        <div class="input-group">
+            <label>Card Number</label>
+            <input type="text" placeholder="XXXX XXXX XXXX XXXX">
+        </div>
+
+        <div class="row-inputs">
+
+            <div class="input-group">
+                <label>Expiry Date</label>
+                <input type="text" placeholder="MM / YY">
+            </div>
+
+            <div class="input-group">
+                <label>CVV</label>
+                <input type="password" placeholder="CVV">
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="checkout-card">
+
+        <div class="checkout-title">
+            <i class="fa-solid fa-receipt"></i>
+            Order Summary
+        </div>
+
+        <div class="product-box">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300" alt="">
+            <div>
+                <h4>Advanced Web Development</h4>
+                <span class="badge">Premium Package</span>
+            </div>
+        </div>
+
+        <div class="features">
+            <div><i class="fa fa-check"></i> 15 Custom Pages</div>
+            <div><i class="fa fa-check"></i> Admin Dashboard</div>
+            <div><i class="fa fa-check"></i> SEO Optimization</div>
+        </div>
+
+        <div class="price">
+            <div><span>Base Price</span><span>$499</span></div>
+            <div><span>Service Fee</span><span>$25</span></div>
+            <div class="total"><span>Total</span><span>$524</span></div>
+        </div>
+
+        <button class="pay-btn">Complete Payment</button>
+
+        <div class="secure">
+            <i class="fa fa-lock"></i> Secure Transaction
+        </div>
+
+    </div>
+
+</div>
+</div>
+<script src="p1.js"></script>
+</body>
+
+</html>
+
+
+
