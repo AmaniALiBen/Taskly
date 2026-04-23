@@ -1,4 +1,5 @@
- const gigsList = [
+
+ const gigs = [
             { 
                 id: 1, 
                 title: "Modern Luxury Brand Identity Design", 
@@ -81,11 +82,41 @@
             }
         ];
 
-        // Rendering Engine
-        function renderAvailableGigs() {
-            const mainContainer = document.getElementById('gigs-main-container');
+
+function initCustomSelects() {
+    const selects = document.querySelectorAll('.custom-select');
+
+    selects.forEach(select => {
+        const trigger = select.querySelector('.select-trigger');
+        const options = select.querySelectorAll('.option');
+        const label = trigger.querySelector('span');
+
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Close others
+            selects.forEach(s => { if (s !== select) s.classList.remove('active'); });
+            select.classList.toggle('active');
+        });
+
+        options.forEach(opt => {
+            opt.addEventListener('click', () => {
+                label.innerText = opt.innerText;
+                select.classList.remove('active');
+                console.log("Filtered by:", opt.dataset.value);
+                // Filter logic here
+            });
+        });
+    });
+
+    document.addEventListener('click', () => {
+        selects.forEach(s => s.classList.remove('active'));
+    });
+}
+
+function renderGigs(gigs) {
+        const mainContainer = document.getElementById('gigs-main-container');
             
-            mainContainer.innerHTML = gigsList.map(gig => `
+            mainContainer.innerHTML = gigs.map(gig => `
                 <div class="gig-card" onclick="navigateToGigDetails(${gig.id})">
                     <div class="gig-image-container">
                         <img src="${gig.image}" alt="${gig.title}">
@@ -109,10 +140,21 @@
                     </div>
                 </div>
             `).join('');
-        }
-
-        function navigateToGigDetails(gigId) {
+}
+ function navigateToGigDetails(gigId) {
             window.location.href = `detailsLast.html?id=${gigId}`;
         }
 
-        window.onload = renderAvailableGigs;
+window.onload = () => {
+    renderGigs(gigs);
+    initCustomSelects();
+
+    // Nav Item Switch
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.onclick = () => {
+            navItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+        };
+    });
+};

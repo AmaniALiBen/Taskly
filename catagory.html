@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskly | Professional Services</title>
+    <!-- Fonts & Icons -->
+     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/gigStyle.css">
+     <link rel="stylesheet" href="css/catagory.css">
+     
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+      
+    </style>
+</head>
+<body>
+  <div class="animated-background"></div>
+
+  <nav class="navbar">
+        <div class="container nav-content">
+            <div style="display: flex; align-items: center;">
+                <button class="btn-back" title="Go Back">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <a href="index.html" class="brand-logo">Task<span>ly</span></a>
+             
+            </div>
+             <div class="header-center">
+            <div class="search-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Find your next expert service...">
+            </div>
+        </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="button-small" style="background:transparent; color:white;">Login</button>
+                <button class="button-small button-primary">Sign In</button>
+            </div>
+        </div>
+    </nav>
+    
+<main class="container">
+    <section class="filters-section">
+        <div class="section-header">
+            <h1>Design Marketplace</h1>
+            
+            <div class="filter-controls">
+                <!-- Custom Select 1 -->
+                <div class="custom-select" id="priceSelect">
+                    <div class="select-trigger">
+                        <span>Price Range</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="select-options">
+                        <div class="option" data-value="low">Budget (<$50)</div>
+                        <div class="option" data-value="mid">Professional ($50-$200)</div>
+                        <div class="option" data-value="high">Enterprise ($200+)</div>
+                    </div>
+                </div>
+
+                <!-- Custom Select 2 -->
+                <div class="custom-select" id="levelSelect">
+                    <div class="select-trigger">
+                        <span>Seller Level</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="select-options">
+                        <div class="option" data-value="pro">Pro Verified</div>
+                        <div class="option" data-value="top">Top Rated</div>
+                        <div class="option" data-value="rising">Rising Star</div>
+                    </div>
+                </div>
+
+                <!-- Custom Select 3 -->
+                <div class="custom-select" id="timeSelect">
+                    <div class="select-trigger">
+                        <span>Delivery</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="select-options">
+                        <div class="option" data-value="24h">24 Hours</div>
+                        <div class="option" data-value="3d">3 Days</div>
+                        <div class="option" data-value="7d">Anytime</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-nav">
+            <div class="nav-item active">All Services</div>
+            <div class="nav-item">UX/UI Design</div>
+            <div class="nav-item">Architecture</div>
+            <div class="nav-item">NFT Art</div>
+            <div class="nav-item">Marketing</div>
+        </div>
+    </section>
+
+     <div id="gigs-main-container" class="gigs-main-grid"></div>
+
+        <!-- Rendered by JS -->
+    </main>
+
+    <!-- <script src="js/index.js"> </script> -->
+    <script src="js/catagory.js"></script>
+</body>
+</html>
