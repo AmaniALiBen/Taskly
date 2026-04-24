@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders | Taskly</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/orders.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+</head>
+<body>
+
+    <div class="animated-background"></div>
+
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="nav-left">
+                <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+                <a href="index.html" class="brand-logo">Task<span>ly</span></a>
+            </div>
+            <div class="user-avatar">
+                <img src="https://i.pravatar.cc/100?u=me">
+            </div>
+        </div>
+    </nav>
+
+    <main class="container content-wrapper">
+        <div class="page-header">
+            <h1>Manage Orders</h1>
+            <p>Monitor your project updates and progress.</p>
+        </div>
+
+        <div class="tabs">
+            <div class="tab-item active" onclick="filterOrders('active')">Active</div>
+            <div class="tab-item" onclick="filterOrders('completed')">Completed</div>
+            <div class="tab-item" onclick="filterOrders('cancelled')">Cancelled</div>
+        </div>
+
+        <div id="orders-list">
+            <!-- JavaScript will inject cards here -->
+        </div>
+    </main>
+
+    <script src="js/orders.js"></script>
+</body>
+</html>

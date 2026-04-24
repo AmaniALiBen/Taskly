@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management | Workspace</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/orderTracing.css">
+    <link rel="stylesheet" href="css/catagory.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="animated-background"></div>
+
+    <!-- UI Components -->
+    <div id="toast-container"></div>
+    <div id="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-icon" id="m-icon"><i class="fas fa-question"></i></div>
+            <div class="modal-title" id="m-title">Are you sure?</div>
+            <div class="modal-body" id="m-body">This action cannot be undone.</div>
+            <div class="modal-footer">
+                <button class="button-outline" style="flex:1" onclick="closeModal()">Cancel</button>
+                <button class="button-primary" style="flex:1" id="m-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+       
+        <div class="nav-content">
+            <div style="display: flex; align-items: center;">
+                <button class="btn-back" title="Go Back">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <a href="index.html" class="brand-logo">Task<span>ly</span></a>
+            
+    </nav>
+
+    <div class="container">
+        <div class="glass-card">
+            <div class="card-header">
+                <div
+                    style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 10px;">
+                    Order Management / #882-991</div>
+                <h1 style="font-size: 24px; font-weight: 800;">UI/UX Design for Mobile Application</h1>
+            </div>
+
+            <nav class="tabs-nav">
+                <button class="tab-btn active" id="btn-requirements"
+                    onclick="switchTab('requirements')">Requirements</button>
+                <button class="tab-btn" id="btn-messages" onclick="switchTab('messages')" disabled>Messages</button>
+                <button class="tab-btn" id="btn-deliveries" onclick="switchTab('deliveries')" disabled>Deliveries
+                    Log</button>
+            </nav>
+
+            <div class="content-area">
+                <!-- Requirements Tab -->
+                <div id="pane-requirements" class="tab-panel active">
+                    <div id="req-edit-mode">
+                        <h3 style="margin-bottom: 20px;">Project Brief & Files</h3>
+                        <textarea id="req-text" placeholder="Explain your requirements in detail..."></textarea>
+                        <div class="file-upload-zone" onclick="document.getElementById('file-input').click()">
+                            <i class="fas fa-cloud-upload-alt"
+                                style="font-size: 2rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+                            <p style="font-weight: 600;">Click to upload attachments</p>
+                            <input type="file" id="file-input" class="hidden" multiple
+                                onchange="handleFileSelect(event)">
+                        </div>
+                        <div id="selected-files-list" class="preview-files-list"></div>
+                        <div style="text-align: right; margin-top: 30px;">
+                            <button class="button-primary" onclick="submitRequirements()">Submit & Start
+                                Project</button>
+                        </div>
+                    </div>
+                    <div id="req-view-mode" class="hidden">
+                        <div
+                            style="background: rgba(16, 185, 129, 0.1); padding: 15px; border-radius: 10px; color: var(--success); margin-bottom: 25px; font-weight: 600;">
+                            <i class="fas fa-lock"></i> Requirements locked. The project is active.
+                        </div>
+                        <div
+                            style="padding: 25px; background: rgba(0,0,0,0.2); border-radius: 15px; border: 1px solid var(--glass-border);">
+                            <h4 style="margin-bottom: 10px; color: var(--text-secondary);">Brief:</h4>
+                            <div id="final-req-display" style="margin-bottom: 20px; white-space: pre-wrap;"></div>
+                            <h4 style="margin-bottom: 10px; color: var(--text-secondary);">Attached Files:</h4>
+                            <div id="final-files-display" class="preview-files-list"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages Pane -->
+                <div id="pane-messages" class="tab-panel">
+                    <div id="chat-box">
+                        <div class="msg msg-seller">
+                            <div class="msg-meta">Alex Studio • Just now</div>
+                            I've received your requirements! I'll update you as soon as I have the first draft.
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; display: flex; gap: 10px;">
+                        <input type="text" id="chat-input" placeholder="Type your message..."
+                            style="flex: 1; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 10px; padding: 12px; color: white; outline: none;"
+                            onkeypress="if(event.key==='Enter') sendMessage()">
+                        <button class="button-primary" onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+
+                <!-- Deliveries Pane -->
+                <div id="pane-deliveries" class="tab-panel">
+                    <div id="delivery-container">
+                        <h3 style="margin-bottom: 25px;">History of Deliveries</h3>
+                        <div class="delivery-item" id="delivery-row-1">
+                            <div>
+                                <span class="delivery-tag tag-final">Latest Delivery</span>
+                                <h4 style="margin-top: 8px;">V1 Draft - High Fidelity Screens</h4>
+                                <p style="font-size: 12px; color: var(--text-secondary);">Uploaded 2h ago • 14.5 MB</p>
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <button class="button-outline" id="btn-revision" onclick="requestRevision()">Request
+                                    Revision</button>
+                                <button class="button-primary" id="btn-accept" onclick="acceptOrder()">Accept &
+                                    Complete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="glass-card order-summary-box">
+                <div class="summary-content">
+                    <div class="gig-preview">
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?auto=format&fit=crop&w=150"
+                            class="gig-img">
+                        <div class="gig-title">Complete Mobile UI/UX Design with Prototype</div>
+                    </div>
+                    <div class="order-details-list">
+                        <div class="detail-row">
+                            <span class="detail-label">Status</span>
+                            <span class="detail-value" id="status-val" style="color: var(--rating-gold);">Awaiting
+                                Info</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Revisions Left</span>
+                            <span class="detail-value" id="revisions-val" style="color: var(--primary-hover);"><i
+                                    class="fas fa-redo-alt" style="font-size: 10px; margin-right: 5px;"></i> 3 of
+                                3</span>
+                        </div>
+                        <div class="detail-row"
+                            style="margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--glass-border);">
+                            <span class="detail-label">Total Amount</span>
+                            <span class="detail-value"
+                                style="font-size: 18px; color: var(--primary-color);">$450.00</span>
+                        </div>
+                    </div>
+                    <div class="progress-nodes">
+                        <div class="node-item active" id="node-1">
+                            <div class="node-icon"><i class="fas fa-file-alt"></i></div>
+                            <div class="node-line"></div>
+                            <div class="node-text">Submit Requirements</div>
+                        </div>
+                        <div class="node-item" id="node-2">
+                            <div class="node-icon"><i class="fas fa-cog"></i></div>
+                            <div class="node-line"></div>
+                            <div class="node-text">Order in Progress</div>
+                        </div>
+                        <div class="node-item" id="node-3">
+                            <div class="node-icon"><i class="fas fa-check"></i></div>
+                            <div class="node-text">Review Delivery</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="js/orderTracing.js"></script>
+</body>
+
+</html>

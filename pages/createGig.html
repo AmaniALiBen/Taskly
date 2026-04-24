@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taskly | Create Your Gig</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/createGig.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="animated-background"></div>
+
+    <nav class="navbar">
+      <div class="container nav-content">
+        <a href="index.html" class="brand-logo">Task<span>ly</span></a>
+        <button class="btn-back">← Back to Explore</button>
+      </div>
+    </nav>
+
+    <main class="registration-container">
+      <div class="form-card wide-card">
+        <div class="form-header">
+          <h2>Create <span>New Gig</span></h2>
+          <p>Luxury design meets professional functionality</p>
+        </div>
+
+        <form id="gigForm">
+          <div class="form-section">
+            <div class="input-group">
+              <label>Gig Title</label>
+              <input
+                type="text"
+                placeholder="I will build a high-end web application..."
+                class="custom-input title-field"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label>Gig Description</label>
+              <textarea
+                placeholder="Describe your service details..."
+                class="custom-input desc-field"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="input-grid">
+              <div class="input-group">
+                <label>Category</label>
+                <div class="select-wrapper">
+                  <select class="custom-select" id="mainCategory" required>
+                    <option value="" disabled selected>Select Category</option>
+                    <option value="design">Graphics & Design</option>
+                    <option value="coding">Programming & Tech</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Sub-Category</label>
+                <div class="select-wrapper">
+                  <select class="custom-select" id="subCategory" required>
+                    <option value="" disabled selected>
+                      Select Sub-category
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <label class="section-label">Gig Gallery</label>
+            <div class="image-upload-grid">
+              <div
+                class="upload-sq-box"
+                onclick="document.getElementById('imgInput').click()"
+              >
+                <i class="fas fa-plus"></i>
+                <input
+                  type="file"
+                  id="imgInput"
+                  hidden
+                  multiple
+                  accept="image/*"
+                />
+              </div>
+              <div id="imagePreviewContainer" class="preview-area-flex"></div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="packages-container">
+              <div class="p-card basic-tier">
+                <div class="p-head">Basic</div>
+                <div class="p-content">
+                  <ul class="feature-list" id="list-basic">
+                    <li>
+                      <input
+                        type="text"
+                        placeholder="Add feature item..."
+                        class="li-input"
+                      />
+                    </li>
+                  </ul>
+                  <button
+                    type="button"
+                    class="btn-add-item"
+                    onclick="addNewItem('list-basic')"
+                  >
+                    + Add Item
+                  </button>
+                  <div class="p-price">
+    <span>$</span>
+    <input type="number" value="5" min="1" class="price-input">
+</div>
+                </div>
+              </div>
+              <div class="p-card standard-tier">
+                <div class="p-head">Standard</div>
+                <div class="p-content">
+                  <ul class="feature-list" id="list-standard">
+                    <li>
+                      <input
+                        type="text"
+                        placeholder="Add feature item..."
+                        class="li-input"
+                      />
+                    </li>
+                  </ul>
+                  <button
+                    type="button"
+                    class="btn-add-item"
+                    onclick="addNewItem('list-standard')"
+                  >
+                    + Add Item
+                  </button>
+                  <div class="p-price">
+                    <span>$</span>
+                    <input
+                      type="number"
+                      value="50"
+                      min="1"
+                      class="price-input"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="p-card premium-tier">
+                <div class="p-head">Premium</div>
+                <div class="p-content">
+                  <ul class="feature-list" id="list-premium">
+                    <li>
+                      <input
+                        type="text"
+                        placeholder="Add feature item..."
+                        class="li-input"
+                      />
+                    </li>
+                  </ul>
+                  <button
+                    type="button"
+                    class="btn-add-item"
+                    onclick="addNewItem('list-premium')"
+                  >
+                    + Add Item
+                  </button>
+                  <div class="p-price">
+    <span>$</span>
+    <input type="number" value="100" min="1" class="price-input">
+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Publish Gig</button>
+        </form>
+      </div>
+      <div id="notification-container" class="notification-container"></div>
+    </main>
+
+    <script src="js/createGig.js"></script>
+  </body>
+</html>
